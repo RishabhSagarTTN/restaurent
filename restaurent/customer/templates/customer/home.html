@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <script type="module" src="{% static 'js/home.js' %}"></script>
+    <title>Restaurant Menu</title>
+  
+</head>
+<body>
+    <header>
+        <h1>Restaurant Menu</h1>
+        <p>Choose your favorite dish and book it!</p>
+    </header>
+    
+    <div class="container">
+        <div class="dish-list">
+            <div class="dish-card">
+                <img src="https://via.placeholder.com/400x250?text=Pasta" alt="Pasta">
+                <h3>Pasta</h3>
+                <p>A delicious Italian pasta with a creamy sauce and fresh herbs.</p>
+                <button onclick="bookDish('pasta')">Book Dish</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

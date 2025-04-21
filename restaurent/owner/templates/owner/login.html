@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+    <title>Login</title>
+</head>
+<body>
+    {% include "owner/Headerlayout.html" %}
+    <div>
+    <div>
+
+<img src="/media/temp.jpg" alt="Food" style="width: 50vw;
+  height: 75vh;
+  object-fit: cover;"/>
+
+    </div>
+<div >
+<form class="form" method="post" style="position: absolute;  left: 70%;  top: 28%;">
+    {% csrf_token %}
+
+    <span class="input-span">
+      <label  class="label" for="id_user">User:</label>
+      {{form.user}}</span>
+    <span class="input-span">
+      <label class="label" for="id_password">Password:</label>
+      {{form.password}}</span>
+    <input class="submit" type="submit" value="Log in" />
+    <span class="span">Don't have an account? <a href='{% url "owner:register" %}'>Sign up</a></span>
+  </form>
+</div>
+{% if form.errors %}
+    {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+            <h4>{{ error }}</h4>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+
+</div>
+
+
+<div  style="position: relative;  bottom: 0%;width: 100%;">
+        {% include "owner/footer.html" %} 
+       
+      </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</html>
+

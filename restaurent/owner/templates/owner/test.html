@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+    <title>Delicious Restaurant</title>
+</head>
+<body>
+    <div>
+    {% include "owner/Headerlayout.html" %}
+
+
+<div class="main-content">
+    <h2>Welcome to Delicious, where taste meets perfection!</h2>
+    <p>Our chefs have carefully curated the finest dishes that cater to all your cravings. Discover a world of flavor, right at your fingertips!</p>
+
+    <div class="featured-dishes">
+        {% for data in  data %}
+        <div class="dish">
+            <a href='/owner/details/{{data.dish_sluger}}'> 
+            <img src="{{data.dish_image.url}}" alt="{{data.dish_name}}">
+            <h4 style="color:black;">{{data.dish_name}}</h4>
+            
+     </a>
+
+           
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div  style="position: absolute;  bottom: 0%;width: 100%;">
+    {% include "owner/footer.html" %} 
+    </div>
+</div>
+</body>
+</html>

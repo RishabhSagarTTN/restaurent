@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <title>Dashboard</title>
+</head>
+<body>
+    {% include "owner/Headerlayout.html" %}
+    {% if  form.errors%}
+{% for i in form %}
+<p>{{i.errors}}</p>
+{% endfor %}
+{% endif %}
+
+
+
+    <h1>Register Your Dish</h1>
+    <div style="display: flex;">
+        <div>
+    
+    <img src="/media/temp.jpg" alt="Food" style="width: 50vw;
+      height: 75vh;
+      object-fit: cover;"/>
+    
+        </div>
+    <!-- From Uiverse.io by bociKond --> 
+    <div style="margin-left: 20%;">
+        <form class="form" method="post"  enctype="multipart/form-data">
+            {% csrf_token %}
+        
+            <span class="input-span">
+              <label  class="label" for="id_user">{{form.dish_name.label_tag}}</label>
+              {{form.dish_name}}</span>
+            <span>
+                <label  class="label" for="id_user">{{form.price.label_tag}}</label>
+                {{form.price}}</span>
+              <span class="input-span">
+                <label  class="label" for="id_user">{{form.dish_category.label_tag}}</label>
+                {{form.dish_category}}</span>
+                <span class="input-span">
+                    <label  class="label" for="id_user">{{form.dish_image.label_tag}}</label>
+                    {{form.dish_image}}</span>
+                    <span class="input-span">
+                        <label  class="label" for="id_user">{{form.dish_veg.label_tag}}</label>
+                        {{form.dish_veg}}</span>
+                        <span class="input-span">
+                            <label  class="label" for="id_user">{{form.dish_detail.label_tag}}</label>
+                            {{form.dish_detail}}</span>
+                            <span>
+                                <label  class="label" for="id_user">{{form.dish_quantity.label_tag}}</label>
+                                {{form.dish_quantity}}</span>
+                                <input class="submit" type="submit" value="Register Dish" />
+
+          </form>
+        </div> </div>
+
+
+<div>
+    {% include "owner/footer.html" %} 
+   
+  </div>
+</body>
+</html>

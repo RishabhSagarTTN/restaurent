@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+    <title>Document</title>
+</head>
+<body>
+      {% include "owner/Headerlayout.html" %}
+
+    <div style="display: flex;
+    align-items: center;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;">
+      <div style="width: 100vw;">
+        <img src='{{data.dish_image.url}}' alt="Pasta" width="100%">
+      </div>
+
+      <div style="margin-left: 2%;"> <h1>{{data.dish_name}}</h1>
+        <h2>{{data.dish_category}}</h2>
+        <h3>Rs.&nbsp;{{data.price}}</h3>
+        <form method='post' action='{% url "owner:dish" %}'>
+
+          {% csrf_token %}
+         
+          {% if not user.is_superuser %}
+       
+          <input name="dish" value={{data.dish_sluger}} type='text' hidden/>
+  <br>
+          <button class="testing">Add</button>
+       
+          {% else %}
+
+
+        
+       
+          <input name="dishDelete" value={{data.dish_sluger}} type='text' hidden/>
+<br>
+          <button class="testing">Delete</button>
+
+          {% endif %}
+
+         
+      </form>
+        <br/>
+        <h4>{{details}}</h4>
+      </div></div>
+
+   
+
+      <div  style="position: absolute;  bottom: 0%;width: 100%;">
+        {% include "owner/footer.html" %} 
+
+      </div>   
+</body>
+</html>
+
+

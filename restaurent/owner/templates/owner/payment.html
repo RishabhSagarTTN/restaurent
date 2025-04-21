@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <script type="module" src="{% static 'js/home.js' %}"></script>
+    <title>cart</title>
+</head>
+<body>
+    {% include "owner/Headerlayout.html" %}
+     <script>
+      setTimeout(function () {
+          window.location.href = "{% url 'owner:home' %}";
+      }, 3000);
+  </script> 
+  <div class="dish-block">
+    <h1>Payment</h1>  
+
+  <div>
+
+    <h2>PAYMENT IS SUCSSESFUL PLEASE VIEW YOUR CART FOR THE STATUS </h2>
+  </div></div>
+<div style="position: absolute;width: 100%;bottom:0%">
+  {% include "owner/footer.html" %} 
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+asgiref==3.8.1
+async-timeout==5.0.1
+click==8.1.8
+Django==5.1.6
+Faker==36.1.1
+h11==0.14.0
+pillow==11.1.0
+redis==5.2.1
+sqlparse==0.5.3
+typing_extensions==4.12.2
+tzdata==2025.1
+uvicorn==0.34.0

@@ -1,0 +1,364 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.container {
+    width: auto;
+    margin: 30px auto;
+}
+.dish-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.dish-card {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 18%;
+    margin: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+.dish-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.dish-card h3 {
+    
+    font-size: 22px;
+    color: #333;
+}
+.dish-card p {
+    font-size: 16px;
+    color: #555;
+}
+.dish-card button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+.dish-card button:hover {
+    background-color: #45a049;
+}
+
+
+h4 {
+    color: black;
+}
+
+
+.dish-cart {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    justify-content: space-between;
+  align-items: center;
+}
+
+
+.dish-cart img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.dish-cart h3 {
+    
+    font-size: 22px;
+    color: #333;
+}
+.dish-cart p {
+    font-size: 16px;
+    color: #555;
+}
+.dish-cart button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 0px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 0px;
+    transition: background-color 0.3s;
+    width: 40%;
+}
+.dish-cart button:hover {
+    background-color: #45a049;
+}
+
+.dish-block{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+input[type=number]{
+    padding: 9px;
+  border: 1px solid aliceblue;
+  font-size: 18px;
+  margin: 10px;
+  width: 30%;
+}
+.pay{
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 25%;
+    transition: background-color 0.3s;
+    
+}
+#id_searching_data{
+    width: 60%;
+  padding: 8px 0px;
+  border: 1px solid antiquewhite;
+  font-size: 15px;
+  margin: 5px;
+  color: green;
+}
+/* label #id_searching_data{
+    font-weight: bold;
+  margin: 10px;
+} */
+
+.bselection{
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 9px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 1%;
+    transition: background-color 0.3s;
+}
+
+
+.payowner{
+    color: white;
+  border: none;
+  padding: 10px  !important;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 10px  !important;
+  transition: background-color 0.3s;
+  width: 100%  !important;
+    
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    position:relative;
+
+}
+
+
+.main-content {
+    text-align: center;
+    padding: 50px 10px;
+}
+
+.main-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.featured-dishes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.dish {
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.dish:hover {
+    transform: scale(1.05);
+}
+
+.dish img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.dish h4 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+
+
+header {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Flexbox for the header content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    font-style: italic;
+
+}
+
+h4, h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h3 {
+        margin-top: 10px;
+
+    }
+
+    h4 {
+        font-size: 14px;
+
+    }
+}
+
+
+/* From Uiverse.io by bociKond */ 
+.form {
+    --bg-light: #efefef;
+    --bg-dark: #707070;
+    --clr: #58bc82;
+    --clr-alpha: #9c9c9c60;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .form .input-span {
+    width: 100%;
+    flex-direction: column;
+
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .form input[type="text"],
+  .form input[type="password"] {
+    border-radius: 0.5rem;
+    padding: 1rem 0.75rem;
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--clr-alpha);
+    outline: 2px solid var(--bg-dark);
+  }
+  
+  .form input[type="text"]:focus,
+  .form input[type="password"]:focus {
+    outline: 2px solid var(--clr);
+  }
+  
+  .label {
+    align-self: flex-start;
+    color: var(--clr);
+    font-weight: 600;
+  }
+  
+  .form .submit {
+    padding: 1rem 0.75rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 3rem;
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .form .submit:hover {
+    background-color: var(--clr);
+    color: var(--bg-dark);
+  }
+  
+  .span {
+    text-decoration: none;
+    color: var(--bg-dark);
+  }
+  
+  .span a {
+    color: var(--clr);
+  }
+  
+   .testing{
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    width: 30%;
+}

@@ -1,0 +1,36 @@
+
+ 
+<div>
+    <header>
+        <div class="header-content">
+            <a href="{% url 'owner:homepage' %}">
+                <h1>Delicious</h1>
+            </a>
+    
+            <div style="display: flex;justify-content: flex-end; gap: 1%;">
+                {% if user.is_authenticated %}
+                    <h3>Welcome, {{ user.username }}</h3>
+    
+                    {% if user.is_superuser %}
+                        <h4><a href="{% url 'owner:dashboard' %}">Dashboard</a></h4>
+                    {% else %}
+                        <h4><a href="{% url 'owner:cart' %}">Cart</a></h4>
+                        <h4><a href="{% url 'owner:hisorder' %}">Previous Orders</a></h4>
+                    {% endif %}
+    
+                    <h4><a href="{% url 'owner:logout' %}">Logout</a></h4>
+                {% else %}
+                    <h4><a href="{% url 'owner:register' %}">Register</a></h4>
+                    <h4><a href="{% url 'owner:login' %}">Login</a></h4>
+    
+                {% endif %}
+            </div>
+        </div>
+        <div        style="display: flex; justify-content:flex-start; gap:5%; padding-top: 10px;">
+          <a href='{% url "owner:homepage" %}'><div>Home</div></a>
+          <a href='{% url "owner:home" %}'><div>Menu</div></a>
+
+        
+        </div>
+    </header>
+</div>

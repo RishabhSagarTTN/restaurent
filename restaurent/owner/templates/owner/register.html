@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+    <title>Login</title>
+</head>
+<body>
+    {% include "owner/Headerlayout.html" %}
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+        {% if form.errors %}
+        
+            {% for error in form.errors %}
+                {% comment %} <p>{{ error}}</p> {% endcomment %}
+            {% endfor %}
+        
+    {% endif %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}{% endif %}
+<button type="submit">Register</button>
+    </form>
+<div>
+  
+
+
+</div >
+<div  style="position: absolute;  bottom: 0%;width: 100%;">
+{% include "owner/footer.html" %} 
+</div>
+</body>
+</html>

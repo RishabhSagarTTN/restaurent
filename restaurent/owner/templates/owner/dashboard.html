@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+
+    <title>Dashboard</title>
+    <style>
+        .content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #333;
+        }
+
+        .content a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    {% include "owner/Headerlayout.html" %} 
+
+
+    <div class="content">
+        <h1>Dashboard</h1>
+        <p>Welcome to your dashboard! Use the menu above to navigate.</p>
+        
+        <h2>Actions</h2>
+        <ul>
+            <li><a href="{% url 'owner:registerdish' %}">Register a New Dish</a></li>
+            <li><a href="{% url 'owner:userorder' %}">User's Orders</a></li>
+            <li><a href="{% url 'owner:orderupdate' %}">Update a Dish</a></li>
+
+        </ul>
+    </div>
+
+
+<div  style="position: absolute;  bottom: 0%;width: 100%;">
+    {% include "owner/footer.html" %} 
+    </div>
+   
+
+</body>
+</html>

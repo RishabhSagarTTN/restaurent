@@ -1,0 +1,106 @@
+{%load static%}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <script type="module" src="{% static 'js/home.js' %}"></script>
+    <title>Owner</title>
+</head>
+<body>
+  <div>
+    {% include "owner/Headerlayout.html" %}
+ 
+    <div>
+<form method='get'>
+
+{{searching}}
+
+</form> 
+    </div>
+   <div style="display:flex;justify-content:flex-start;width:95%;align-items: center;margin:10px">
+    <div>
+   <h3>Filter:</h3>
+    </div>
+    
+      <form method="get" style="width:inherit;"> 
+        {% for i in cat %}
+          <button type="submit" name="selection" value="{{i.dish_category}}" class="bselection">{{i.dish_category}}</button>
+        {% endfor %}
+        {% comment %} <button type="submit" name="selection" value="Veg" class="bselection">Veg</button>
+        <button type="submit" name="selection" value="Non Veg" class="bselection">Non Veg</button> {% endcomment %}
+
+      </form>
+      Sort:
+   <form  method="post">
+    {% csrf_token %}
+
+      <select id="sort" name="sort" onchange="this.form.submit()">
+        <option value="seclet" name="select"></option>
+        <option value="desc" name="desc">Desc</option>
+        <option value="acen" name="acen">Acen</option>
+      </select>
+
+
+    </form>
+
+       </div>
+    <span class="container">
+        <span class="dish-list">
+          
+{% if data %}
+            {% for i in data%}
+            {% if i.dish_quantity %}
+
+         <span class="dish-card">
+            <a href='/owner/details/{{i.dish_sluger}}'> 
+                <img src='{{i.dish_image.url}}' alt="Pasta">
+                <h3>{{i.dish_name}}</h3>
+                <p>{{i.dish_category}}</p>
+                <p>{{i.dish_veg}}</p>
+                <h3>Rs. {{i.price}}</h3>
+                <form method='post' action='{% url "owner:dish" %}'>
+
+                  {% csrf_token %}
+                 
+                  {% if not user.is_superuser %}
+                {% if i.dish_sluger in sdata %}
+                  <button disabled>Added</button>
+               
+                  {% else %}
+                  <input name="dish" value={{i.dish_sluger}} type='text' hidden/>
+
+                  <button>Add</button>
+                  {% endif %}
+                  {% else %}
+
+
+                
+               
+                  <input name="dishDelete" value={{i.dish_sluger}} type='text' hidden/>
+
+                  <button>Delete</button>
+
+                  {% endif %}
+                 
+              </form>
+            </span></a>
+            
+            {% endif %}
+            {% endfor %}
+  {% else %}
+  <h1 style="padding:20px;">Not found </h1>
+            {% endif %}
+        </span>
+    </span></div>
+  </div>
+   <div>
+    {% include "owner/footer.html" %} 
+   </div>
+
+</body>
+</html>

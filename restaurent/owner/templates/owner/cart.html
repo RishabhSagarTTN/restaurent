@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <script type="module" src="{% static 'js/home.js' %}"></script>
+    <title>cart</title>
+</head>
+<body>
+    {% include "owner/Headerlayout.html" %}
+  <div class="dish-block">
+    <h1>Cart</h1>  
+
+  {% if  sdata%}
+  {% for i,price in sdata%}
+  <span class="dish-cart">
+   
+      <div>
+        <a href='/owner/details/{{i.customerDish.dish_sluger}}'> 
+         <img src='{{i.customerDish.dish_image.url}}' alt="Pasta">
+        </a>
+      </div>
+      <div>
+         <h3>{{i.customerDish.dish_name}}</h3>
+         <h4>Rs. {{price}}</h4>
+         <p>Category: {{i.customerDish.dish_category}}</p>
+         <p>Veg/Non Veg: {{i.customerDish.dish_veg}}</p>
+         <p>Quantity: {{i.quantity}}</p>
+         </div>
+        
+        <div>
+         <form method='post' action='{% url "owner:cart" %}'>
+<input type="number" value={{i.quantity}} min=0 name="quantity" max={{i.customerDish.dish_quantity}}/>
+<input type="text" value={{i.customerDish.dish_sluger}} name="dish" hidden/>
+<button class="update">Update</button>
+
+
+
+
+           {% csrf_token %}
+     
+       </form>
+      </div>
+     </span>
+     {% endfor %}
+    
+     
+     <div style="display:flex;justify-content: flex-end;  align-items: center;  padding: 20px;">
+      <div>
+        <h2>Total Price : {{total}}</h2>
+      </div>
+      <div>
+        <form method="post" action='{% url "owner:pay" %}'>
+          {% csrf_token %}
+          <button class="pay">Pay</button>
+        </form>
+      </div>
+      {% else %}
+      <h3>No items added</h3>
+     
+      {% endif %}
+     </div>
+     </div><div  style="position: absolute;  bottom: 0%;width: 100%;">
+      {% include "owner/footer.html" %} 
+      </div>
+</body>
+</html>
